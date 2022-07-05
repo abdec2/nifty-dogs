@@ -12,13 +12,20 @@ import Faq from "./components/sections/Faq";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Mint from "./components/sections/Mint";
+import AlertBox from './components/AlertBox'
+
+import { useState } from "react";
+
 
 function App() {
+  const [error, setError] = useState(false);
+  const [errMsg, setErrMsg] = useState('');
+
   return (
     <>
       <GlobalStyles />
       <ThemeProvider theme={light}>
-        <Navigation />
+        <Navigation setError={setError} setErrMsg={setErrMsg} />
         <Home />
         <About />
         <Roadmap />
@@ -28,6 +35,7 @@ function App() {
         {/* <Faq /> */}
         <Footer />
         <ScrollToTop />
+        {error && (<AlertBox msg={errMsg} setError={setError} setErrMsg={setErrMsg} />)}
       </ThemeProvider>
     </>
   );

@@ -3,6 +3,7 @@
     "COLLECTION_URI":"https://testnets.opensea.io/collection/nifty-dogs",
     "CONTRACT_ADDRESS": "0x3e215FFAb301B4968057c4bb08F9Ba0Cc75773b8", 
     "NETWORK": "Rinkeby",
-    "NETWORK_ID": "4", 
-    "BLOCKCHAIN_EXPLORER": "https://rinkeby.etherscan.io/"
+    "NETWORK_ID": 4, 
+    "BLOCKCHAIN_EXPLORER": "https://rinkeby.etherscan.io/", 
+    "COST": 0.0777
 }

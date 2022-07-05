@@ -155,9 +155,9 @@ const About = () => {
           <SubText>
           Our mission is to create an exciting platform to help pair trained service dogs with veterans. Using cryptocurrencies and blockchain technologies, our community will generate funds that can be donated to speciﬁc causes that directly impact the need that veterans have for trained service dogs.
           </SubText>
-          <SubTextLight>
+          {/* <SubTextLight>
           A collection of 7,777 unique pieces of art have been created by the artist known as, Delta. These Nifty Dogs will have been generated with ten different traits each with their own variations of Hands, Eye Color, Head Wear, Chains, Mouths, Clothing, Pendants, Backpacks, Eye Wear and Tattoos. The collections will be released in 10 sets of 777 with each release dependant on the previous collection selling out.
-          </SubTextLight>
+          </SubTextLight> */}
           <ButtonContainer>
             <ThemeProvider theme={dark}>
               <Button text="JOIN OUR DISCORD" link="https://discord.com" />

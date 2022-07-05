@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
-import Button from "./Button";
+import { GlobalContext } from "../context/GlobalContext";
+import Button, { Btn } from "./Button";
 import Logo from "./Logo";
 
 const Section = styled.section`
@@ -51,7 +53,7 @@ const Menu = styled.ul`
     backdrop-filter: blur(2px);
 
     transform: ${(props) =>
-      props.click ? "translateY(0)" : "translateY(1000%)"};
+    props.click ? "translateY(0)" : "translateY(1000%)"};
     transition: all 0.3s ease;
 
     flex-direction: column;
@@ -162,7 +164,8 @@ const HamburguerMenu = styled.span`
   }
 `;
 
-const Navigation = () => {
+const Navigation = ({setError, setErrMsg}) => {
+  const { account, delAccount, web3, ConnectWallet } = useContext(GlobalContext)
   const [click, setClick] = useState(false);
 
   const scrollTo = (id) => {
@@ -193,12 +196,20 @@ const Navigation = () => {
           <MenuItemLink href="./whitepaper.pdf" target="_blank">Whitepaper</MenuItemLink>
           <MenuItem>
             <div className="mobile">
-              <Button text="Connect Wallet" link="https://www.google.com.br/" />
+              {account ? (
+                <Btn onClick={() => delAccount()}>{account.slice(0, 5) + '...' + account.slice(38, 42)}</Btn>
+              ) : (
+                <Btn onClick={() => ConnectWallet(setError, setErrMsg)}>Connect Wallet</Btn>
+              )}
             </div>
           </MenuItem>
         </Menu>
         <div className="desktop">
-          <Button text="Connect Wallet" link="https://www.google.com.br/" />
+          {account ? (
+            <Btn onClick={() => delAccount()}>{account.slice(0, 5) + '...' + account.slice(38, 42)}</Btn>
+          ) : (
+            <Btn onClick={() => ConnectWallet(setError, setErrMsg)}>Connect Wallet</Btn>
+          )}
         </div>
       </NavBar>
     </Section>
